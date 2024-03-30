@@ -1,0 +1,26 @@
+<form
+class="container" #registerForm="ngForm">
+<h4>
+  Please Signup
+</h4>
+<input type="email"
+placeholder="email here"
+name="email"
+required
+ ngModel
+ #email="ngModel"
+ >
+<h5 class="red-text" [hidden]="email.valid || email.untouched">Enter correct email</h5>
+<input
+type="password"
+placeholder="password here"
+name="password"
+ required
+ minlength="6"
+ ngModel
+ #password="ngModel">
+<h5 class="red-text" [hidden]="password.valid || password.untouched">password is required and must be 6 character</h5>
+<button class="btn-green" (click)="register(registerForm)" [disabled]="registerForm.invalid">Signup</button>
+<button class="btn-red" (click)="reset(registerForm)">Reset</button>
+</form>
+
